@@ -1,7 +1,6 @@
 var forever = require('forever-monitor');
 var os = require('os');
-var isProd = process.env.NODE_ENV === 'production';
-var path = (isProd ? '/home/locdel' : os.homedir());
+var path =  os.homedir();
 var mail = require('./controllers/mailer');
 var site = require('./config/site');
 

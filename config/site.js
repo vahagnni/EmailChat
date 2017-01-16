@@ -1,9 +1,8 @@
 var isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    schema: isProd ? 'https' : 'http',
-    base: isProd ? 'www.locdel.com/api' : 'http://localhost:8000/api',
-    email: 'support@locdel.com',
-    paymentSupportEmails: ['locdeltest@gmail.com'],
-    engineeringSupport: ['locdeltest@gmail.com']
+    schema: 'http',
+    base: 'http://localhost:8000/',
+    email: 'emailchat@test.com',
+    engineeringSupport: ['emailchat@gmail.com']
 };

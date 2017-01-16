@@ -30,7 +30,7 @@ child.on('stderr', function (err) {
 });
 
 child.on('exit', function () {
-    sendMail('Locdel backend down. Look previous messages to understand reason');
+    sendMail('Emailchat backend down. Look previous messages to understand reason');
     console.log('app.js has exited after 3 restarts');
 });
 

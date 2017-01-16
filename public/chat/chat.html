@@ -1,0 +1,67 @@
+<div>
+    <div ng-class="{'col-xs-4': single, 'col-xs-6': !single}">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-comment"></span> Chat
+            </div>
+            <div class="col-xs-12 no-padding">
+                <div class="col-xs-4 no-padding rooms" ng-if="!single">
+                    <div ng-repeat="r in rooms| room:filter.user |orderBy:roomDate:true" class="room"
+                         ng-click="changeRoom(r)"
+                         ng-class="{'selected': r===room}">
+                        <span class="unread" ng-show="r.unread>0">{{r.unread}}</span>
+                        <strong class="email" tooltip="{{r.for.email}}">{{r.for.email}}</strong>
+                        <small>{{r.for.type === 1 ? 'Customer' : 'Driver'}}</small>
+                        <small class="text-muted">
+                            <span class="glyphicon glyphicon-time"></span>(r.modified || r.created) | dateFormat
+                        </small>
+                    </div>
+                </div>
+                <div class="no-padding messages" ng-class="{'col-xs-12': single, 'col-xs-8': !single}">
+                    <div class="panel-body" scroll-bottom="messages">
+                        <div class="overlay" ng-show="fetching">
+                            <i class="spinner fa fa-circle-o-notch fa-spin"></i>
+                        </div>
+                        <ul class="chat">
+                            <li class="clearfix" ng-repeat="message in messages"
+                                ng-class="{ 'left': self(message), 'right': !self(message), 'message-fade-out': message.new }">
+                                <div class="chat-body clearfix" ng-class="{'text-right': !self(message)}">
+                                    <div class="header">
+                                        <strong class="primary-font">{{message.from}}</strong>
+                                        <small class="text-muted">
+                                            <span class="glyphicon glyphicon-time"></span>{{dateFormat(message.date)}}
+                                        </small>
+                                    </div>
+                                    <p ng-bind-html="html(message.html)">
+                                    </p>
+                                    <p ng-repeat="a in message.attachments" class="attachment">
+                                        <a href="{{downloadPath(a.filename, a.path)}}"
+                                           target="_self">{{a.filename}}</a>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                        <textarea id="btn-input" type="text" class="form-control input-sm message"
+                                  placeholder="Type your message here..."
+                                  ng-model=pending.text></textarea>
+                            <span class="input-group-btn">
+                            <loading-button content="Send" type="warning" loading="sending"
+                                            click="send"></loading-button>
+                        </span>
+                        </div>
+                        <div>
+                            <div class="pending-attachments" ng-show="pending.attachments.length">
+                        <span ng-repeat="p in pending.attachments">
+                            {{p.filename}}
+                        </span></div>
+                            <uploader></uploader>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

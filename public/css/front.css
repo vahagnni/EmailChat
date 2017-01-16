@@ -1,0 +1,190 @@
+.chat {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body {
+    margin-right: 60px;
+}
+
+.chat li.right .chat-body {
+    margin-left: 60px;
+}
+
+.chat li .chat-body p {
+    margin: 0;
+    word-break: break-all;
+    color: #777777;
+}
+
+.chat li .chat-body p.attachment {
+    padding: 5px;
+}
+
+.chat li .chat-body p.attachment a {
+    padding: 5px;
+    border-radius: 5px;
+    background: #e4e4e4;
+}
+
+.rooms .email {
+    display: inline-block;
+    width: 100%;
+    padding-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rooms {
+    height: 340px;
+    overflow: auto;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon, .rooms .glyphicon {
+    margin-right: 5px;
+}
+
+.panel {
+    overflow: auto;
+}
+
+.panel-body {
+    overflow-y: auto;
+    height: 250px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+}
+
+.uploader {
+    overflow: auto;
+    margin-top: 5px;
+}
+
+.pending-attachments {
+    margin-top: 5px;
+}
+
+.spinner {
+    margin-right: 10px;
+    padding: 1px;
+    font-size: 13px;
+}
+
+.pending-attachments span {
+    display: inline-block;
+    margin: 3px;
+    padding: 2px;
+    background: #e2e2e2;
+    border: 1px solid #b3b3b3;
+    border-radius: 2px;
+}
+
+[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    display: block; /* For Firefox */
+    color: #777777;
+}
+
+[contenteditable=true] {
+    overflow-y: auto;
+}
+
+.message {
+    height: 30px !important;
+    resize: none;
+}
+
+.no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.room {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.messages {
+    border-left: 1px solid #337ab7;
+}
+
+.room.selected {
+    background: #c0e2ff !important;
+}
+
+.room:hover {
+    background: #ececec;
+}
+
+@keyframes color-fade-out {
+    from {
+        background-color: #fff1dc;;
+    }
+    to {
+        background-color: #FFFFFF;
+    }
+}
+
+/* The element to apply the animation to */
+.message-fade-out {
+    background-color: #fff1dc;
+    animation-name: color-fade-out;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+.unread {
+    position: absolute;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: white;
+    background: red;
+    border-radius: 50%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 12;
+    background: rgba(255, 255, 255, 0.73);
+}
+
+.overlay i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    font-size: 30px;
+    color: #337ab7;
+}

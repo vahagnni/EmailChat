@@ -1,0 +1,9 @@
+div(ng-app='app')
+    script.
+        ll.value('user', {
+            adminNumber: "#{user.adminNumber}",
+            email: "#{user.email}"
+        });
+        ll.value('env', "#{env}")
+    .main
+        chat
